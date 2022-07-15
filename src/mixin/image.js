@@ -29,6 +29,7 @@ export default {
 
   watch: {
     src () {
+      this.imageError = false
       this.handleImageLoading()
     }
   },
@@ -234,7 +235,9 @@ export default {
 
     handleImageLoading () {
       this.loadPlaceholder()
-      this.loadImage()
+      if (this.imageError) {
+        this.loadImage()
+      }
     }
   }
 }
